@@ -1,6 +1,5 @@
 module S3BrowserMultipart
   class UploadPart < ActiveRecord::Base
-    attr_accessible :file_key, :upload_id
     attr_accessor :part_number
     belongs_to :upload
     after_create :assemble_part
