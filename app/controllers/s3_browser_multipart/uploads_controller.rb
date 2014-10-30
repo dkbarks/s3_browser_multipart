@@ -32,6 +32,7 @@ module S3BrowserMultipart
       @object = Upload.find(params[:id])
       begin
         @object.finish_upload
+        session[:_s3_browser_multipart_random] = nil
         session.delete(:_s3_browser_multipart_random)
         render json: {status: 'assemble_success', 
           object_key: @object.object_key, upload_id: @object.id}
